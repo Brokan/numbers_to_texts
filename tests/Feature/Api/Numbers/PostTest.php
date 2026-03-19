@@ -9,7 +9,7 @@ use Tests\TestCase;
 class PostTest extends TestCase
 {
     private const ENDPOINT = 'api/numbers';
-    
+
     public function testFailWhenEmptyRequest(): void
     {
         $response = $this->post(self::ENDPOINT, []);
@@ -25,7 +25,7 @@ class PostTest extends TestCase
             ],
         ]);
     }
-    
+
     public function testFailWhenNotNumber(): void
     {
         $response = $this->post(self::ENDPOINT, [
@@ -43,7 +43,7 @@ class PostTest extends TestCase
             ],
         ]);
     }
-    
+
     public function testFailWhenNumberNegative(): void
     {
         $response = $this->post(self::ENDPOINT, [
@@ -61,7 +61,7 @@ class PostTest extends TestCase
             ],
         ]);
     }
-    
+
     public function testSuccess(): void
     {
         $response = $this->post(self::ENDPOINT, [

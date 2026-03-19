@@ -1,3 +1,7 @@
+##Tests
+Run:
+`php vendor/bin/phpunit`
+
 ## PHPStan
 Run with:
 `composer phpstan`

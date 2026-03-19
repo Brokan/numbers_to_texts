@@ -4,35 +4,35 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api;
 
+use App\Exceptions\LanguageException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Numbers\StoreNumberRequest;
 use App\Services\Numbers\NumberStorageService;
 use App\Services\Numbers\NumberToTextService;
-use App\Http\Requests\Api\Numbers\StoreNumberRequest;
-use Illuminate\Http\Response;
-use Illuminate\Http\Request;
-use App\Exceptions\LanguageException;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
-class NumbersController extends Controller {
-
+class NumbersController extends Controller
+{
     public function __construct(
         private NumberStorageService $numberStorageService,
         private NumberToTextService $numberToTextService,
     ) {
-        
+
     }
 
-    public function store(StoreNumberRequest $request): JsonResponse 
+    public function store(StoreNumberRequest $request): JsonResponse
     {
         $this->numberStorageService->push($request->number);
 
         return response()->json([
             'success' => true,
-            'message' => 'Number added to stack'
+            'message' => 'Number added to stack',
         ], Response::HTTP_CREATED);
     }
 
-    public function pop(Request $request): JsonResponse 
+    public function pop(Request $request): JsonResponse
     {
         /** @var string $language */
         $language = $request->query('language', 'en');
@@ -42,7 +42,7 @@ class NumbersController extends Controller {
         if (!$number) {
             return response()->json([
                 'success' => false,
-                'message' => 'Stack is empty'
+                'message' => 'Stack is empty',
             ], Response::HTTP_NOT_FOUND);
         }
 
@@ -54,7 +54,7 @@ class NumbersController extends Controller {
                 'message' => $exception->getMessage(),
             ], Response::HTTP_BAD_REQUEST);
         }
-        
+
         return response()->json([
             'success' => true,
             'number' => $number,

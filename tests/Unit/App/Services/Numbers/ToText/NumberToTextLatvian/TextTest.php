@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Tests\Unit\App\Services\Numbers\ToText\NumberToTextLatvian;
 
-use PHPUnit\Framework\TestCase;
 use App\Services\Numbers\ToText\NumberToTextLatvian;
+use PHPUnit\Framework\TestCase;
 
-class TextTest extends TestCase {
-
+class TextTest extends TestCase
+{
     private const EXAMPLES = [
         4 => 'četri',
         15 => 'piecpadsmit',
@@ -21,11 +21,11 @@ class TextTest extends TestCase {
         66666666666 => 'sešdesmit seši miljardi seši simti sešdesmit seši miljoni seši simti sešdesmit seši tūkstoši seši simti sešdesmit seši',
     ];
 
-    public function testSuccess(): void {
-        foreach (self::EXAMPLES as $number => $expectText) 
-        {
+    public function testSuccess(): void
+    {
+        foreach (self::EXAMPLES as $number => $expectText) {
             $numberToText = new NumberToTextLatvian($number);
-            
+
             $this->assertEquals($expectText, $numberToText->text());
         }
     }

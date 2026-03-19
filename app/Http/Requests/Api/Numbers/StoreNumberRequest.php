@@ -9,19 +9,21 @@ use App\Http\Requests\Api\ApiRequest;
 /**
  * @property int $number
  */
-class StoreNumberRequest extends ApiRequest 
+class StoreNumberRequest extends ApiRequest
 {
     /**
      * @return array<string, array<string>>
      */
-    public function rules(): array {
+    public function rules(): array
+    {
         return [
-            'number' => ['required', 'integer', 'min:0']
+            'number' => ['required', 'integer', 'min:0'],
         ];
     }
 
     #[\Override]
-    public function messages(): array {
+    public function messages(): array
+    {
         return [
             'number.required' => 'Number is required',
             'number.integer' => 'Number must be an integer',
