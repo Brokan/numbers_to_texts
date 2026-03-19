@@ -1,0 +1,77 @@
+{
+  "info": {
+    "_postman_id": "467e950d-f670-4237-92d0-88ee0bafb4e5",
+    "name": "NumbersTest",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "14337447"
+  },
+  "item": [
+    {
+      "name": "Get number",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/numbers?language=lv",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "numbers"
+          ],
+          "query": [
+            {
+              "key": "language",
+              "value": "lv"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Set number",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"number\" : \"abc\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/numbers",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "numbers"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

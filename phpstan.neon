@@ -1,0 +1,10 @@
+parameters:
+    level: 10
+    paths:
+        - app
+        - database
+        - resources
+        - routes
+        - tests
+    excludePaths:
+        - vendor
