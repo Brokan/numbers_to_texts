@@ -1,4 +1,4 @@
-#Setup
+# Setup
 Require:
  - git
  - php8.4
