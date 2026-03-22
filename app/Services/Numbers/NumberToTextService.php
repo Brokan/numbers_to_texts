@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Services\Numbers;
 
 use App\Exceptions\LanguageException;
-use App\Services\Numbers\ToText\NumberToTextAbstract;
 use App\Services\Numbers\ToText\NumberToTextEnglish;
+use App\Services\Numbers\ToText\NumberToTextInterface;
 use App\Services\Numbers\ToText\NumberToTextLatvian;
 
 class NumberToTextService
@@ -17,7 +17,7 @@ class NumberToTextService
     ): string {
         $class = $this->getClass($language);
 
-        /** @var NumberToTextAbstract $classText */
+        /** @var NumberToTextInterface $classText */
         $classText = new $class($number);
 
         return $classText->text();
