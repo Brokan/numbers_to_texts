@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Numbers\ToText;
 
-class NumberToTextLatvian extends NumberToTextAbstract
+class NumberToTextLatvian extends NumberToTextAbstract implements NumberToTextInterface
 {
     private const UNITS = [
         0 => 'nulle',

@@ -6,7 +6,7 @@ namespace App\Services\Numbers\ToText;
 
 use NumberToWords\NumberToWords;
 
-class NumberToTextEnglish extends NumberToTextAbstract
+class NumberToTextEnglish extends NumberToTextAbstract implements NumberToTextInterface
 {
     #[\Override]
     public function text(): string
